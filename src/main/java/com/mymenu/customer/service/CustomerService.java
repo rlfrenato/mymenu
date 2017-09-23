@@ -17,8 +17,8 @@ public class CustomerService {
 	@Autowired
 	private CustomerRepository customerRepository;
 	
-	public Customer addCustomer(Customer customer) {
-		return (Customer) customerRepository.save(customer);
+	public Customer saveCustomer(Customer customer) {
+		return customerRepository.save(customer);
 	}
 	
 	public List<Customer> getCustomers() {
@@ -44,7 +44,7 @@ public class CustomerService {
 		return customerRepository.save(customer);
 	}
 	
-	public Customer dactivateCustomer(Long customerId) {
+	public Customer deactivateCustomer(Long customerId) {
 		Customer customer = getCustomerById(customerId);
 		customer.setStatus(CustomerStatus.INACTIVE);
 		
